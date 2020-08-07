@@ -1,8 +1,9 @@
-﻿namespace RestWithAPS_NETUdemy.Model
+﻿using RestWithAPS_NETUdemy.Model.Base;
+
+namespace RestWithAPS_NETUdemy.Model
 {
-    public class Person
-    {
-        public long? Id { get; set; }
+    public class Person : BaseEntity
+    {        
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }

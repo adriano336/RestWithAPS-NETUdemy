@@ -1,15 +1,10 @@
 ﻿using RestWithAPS_NETUdemy.Model;
-using System.Collections.Generic;
+using RestWithAPS_NETUdemy.Repository.Generic;
 
 namespace RestWithAPS_NETUdemy.Repository
 {
-    public interface IPersonRepository
+    public interface IPersonRepository : IRepository<Person>
     {
-        Person Create(Person person);
-        Person FindById(long id);
-        List<Person> FindAll();
-        Person Update(Person person);
-        void Delete(long id);
-        bool Exists(long? id);
+        
     }
 }

@@ -6,7 +6,7 @@ namespace RestWithAPS_NETUdemy.Controllers
 {
     [ApiController]    
     [ApiVersion("1")]
-    [Route("[controller]/v{version:apiVersion}")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class PersonsController : ControllerBase
     {
         private readonly IPersonBusiness _personBusiness;
