@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RestWithAPS_NETUdemy.Business;
+using RestWithAPS_NETUdemy.Data.VO;
 using RestWithAPS_NETUdemy.Model;
 
 namespace RestWithAPS_NETUdemy.Controllers
@@ -31,14 +32,14 @@ namespace RestWithAPS_NETUdemy.Controllers
 
         // POST api/<BooksController>
         [HttpPost]
-        public IActionResult Post([FromBody] Book book)
+        public IActionResult Post([FromBody] BookVO book)
         {
             return Ok(_bookBusiness.Create(book));
         }
 
         // PUT api/<BooksController>/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] Book book)
+        public IActionResult Put(int id, [FromBody] BookVO book)
         {
             return Ok(_bookBusiness.Update(book));
         }

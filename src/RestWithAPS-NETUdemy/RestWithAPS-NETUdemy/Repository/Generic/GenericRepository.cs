@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Evolve.Configuration;
+using Microsoft.EntityFrameworkCore;
 using RestWithAPS_NETUdemy.Model.Base;
 using RestWithAPS_NETUdemy.Model.Context;
 using System;
@@ -9,7 +10,7 @@ namespace RestWithAPS_NETUdemy.Repository.Generic
 {
     public class GenericRepository<T> : IRepository<T> where T : BaseEntity
     {
-        private readonly MySQLContext _context;
+        protected readonly MySQLContext _context;
         private DbSet<T> dataset;
 
         public GenericRepository(MySQLContext context)
@@ -61,6 +62,28 @@ namespace RestWithAPS_NETUdemy.Repository.Generic
             return dataset.SingleOrDefault(e => e.Id == id);
         }
 
+        public List<T> FindWithPagedSearch(string query)
+        {
+            return dataset.FromSqlRaw<T>(query).ToList();
+        }
+
+        public int GetCount(string query)
+        {
+            long result = default(long);
+            using (var connection = _context.Database.GetDbConnection())
+            {
+                connection.Open();
+
+                using (var cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = query;
+                    result = (long)cmd.ExecuteScalar();
+                }
+            }
+
+            return (int)result;
+        }
+
         public T Update(T entity)
         {
             if (!Exists(entity.Id)) return null;
@@ -77,6 +100,6 @@ namespace RestWithAPS_NETUdemy.Repository.Generic
                 throw ex;
             }
             return entity;
-        }
+        }                
     }
 }

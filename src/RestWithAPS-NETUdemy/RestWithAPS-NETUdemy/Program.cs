@@ -1,11 +1,10 @@
-using System;
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
-using extHost = Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Hosting;
 using MySql.Data.MySqlClient;
 using Serilog;
-using Microsoft.Extensions.Hosting;
+using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace RestWithAPS_NETUdemy
