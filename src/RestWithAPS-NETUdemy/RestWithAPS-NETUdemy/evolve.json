@@ -1,8 +1,8 @@
 {
   {
     "Evolve.Database": "MySQL.Data",
-    "Evolve.ConnectionString": "Server=localhost;DataBase=rest_with_asp_net_udemy;Uid=root;Pwd=123456",
+    "Evolve.ConnectionString": "Server=192.168.99.100;DataBase=rest_with_asp_net_udemy;Uid=root;Pwd=123456",
     "Evolve.Locations": "db",
-    "Evolve.Command": "migrate"
+    "Evolve.Command": ""
   }
 }

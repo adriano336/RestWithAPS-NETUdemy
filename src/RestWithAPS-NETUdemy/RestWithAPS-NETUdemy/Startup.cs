@@ -117,7 +117,8 @@ namespace RestWithAPS_NETUdemy
 
             services.AddScoped<IPersonBusiness, PersonBusiness>();
             services.AddScoped<IBookBusiness, BookBusiness>();
-            services.AddScoped<ILoginBusiness, LoginBusiness>();            
+            services.AddScoped<ILoginBusiness, LoginBusiness>();
+            services.AddScoped<IFileBusiness, FileBusiness>();
         }
 
         private void ExecuteMigrations()
